@@ -7,10 +7,11 @@ public class Main {
         int totalSavings = 0;
         int money = 15000;
         int month = 0;
+        double percent = 1D / 100;
         while (totalSavings < wholeAmount) {
+            totalSavings += money;
+            totalSavings = (int) (totalSavings * (1 + percent));
             month++;
-            totalSavings = totalSavings + totalSavings / 100;
-            totalSavings = totalSavings + money;
             System.out.println(("Месяц " + month + " ,сумма накоплений равна " + totalSavings + " рублей"));
         }
 
@@ -44,12 +45,65 @@ public class Main {
         System.out.println("Задание 4");
 
         int depositAmount = 15_000;
-        int suma = 12_000_000;
+        int targetAmount = 12_000_000;
+        double monthlyInterestRate = 7D / 100;
         int months = 0;
+        int currentAmount = depositAmount;
 
-        for (int tools = depositAmount; tools <= suma; tools += (tools * 0.07)) {
+        while (currentAmount < targetAmount) {
             months++;
-            System.out.println("Месяц " + months + ", текущая сумма " + tools);
+            currentAmount += currentAmount * monthlyInterestRate;
+            System.out.println("Месяц " + months + ", текущая сумма: " + currentAmount + " рублей");
         }
+
+        System.out.println();
+        System.out.println("Задание 5");
+
+        currentAmount = depositAmount;
+        months = 0;
+        while (currentAmount < targetAmount) {
+            months++;
+            currentAmount += currentAmount * monthlyInterestRate;
+            if (months % 6 == 0) {
+                System.out.println("Месяц " + months + " ,сумма накоплений равна " + currentAmount + " рублей");
+            }
+        }
+
+        System.out.println();
+        System.out.println("Задание 6");
+
+        currentAmount = depositAmount;
+        months = 0;
+        int monthss = 9 * 12;
+        while (months < monthss) {
+            months++;
+            currentAmount += currentAmount * monthlyInterestRate;
+            if (months % 6 == 0) {
+                System.out.println("Месяц " + months + " ,сумма накоплений равна " + currentAmount + " рублей");
+            }
+        }
+        System.out.println();
+        System.out.println("Задание 7");
+
+        int friday = 5;
+        for (int day = friday; day <= 31; day += 7) {
+            System.out.println("Сегодня пятница, " + day + "-е число. Необходимо подготовить отчет ");
+        }
+
+        System.out.println();
+        System.out.println("Задание 8");
+
+        int period = 79;
+        int years = 2024;
+        int startYear = years - 200;
+        int endYear = years + 100;
+
+        for (int year = 0; year < endYear; year += period) {
+            if (year > startYear) {
+                System.out.println(year);
+            }
+        }
+
     }
+
 }
