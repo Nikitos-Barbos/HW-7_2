@@ -7,10 +7,11 @@ public class Main {
         int totalSavings = 0;
         int money = 15000;
         int month = 0;
+        double percent = 1D / 100;
         while (totalSavings < wholeAmount) {
+            totalSavings += money;
+            totalSavings = (int) (totalSavings * (1 + percent));
             month++;
-            totalSavings = totalSavings + totalSavings / 100;
-            totalSavings = totalSavings + money;
             System.out.println(("Месяц " + month + " ,сумма накоплений равна " + totalSavings + " рублей"));
         }
 
@@ -103,5 +104,7 @@ public class Main {
             }
         }
 
+
     }
+
 }
